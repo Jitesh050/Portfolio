@@ -1,0 +1,90 @@
+/* Custom Styles */
+:root {
+    --bg-dark: #0a0a0a;
+    --text-dark: #e5e5e5;
+    --border-dark: #262626;
+    --card-dark: #171717;
+    --accent: #3b82f6;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-dark);
+}
+
+.font-grotesk {
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+.card {
+    background-color: var(--card-dark);
+    border: 1px solid var(--border-dark);
+    transition: background-color 0.3s, border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    border-color: var(--accent);
+}
+
+.glass-header {
+    background-color: rgba(10, 10, 10, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border-dark);
+}
+
+/* Scroll-triggered animation setup */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Custom focus styles for accessibility */
+:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+    border-radius: 4px;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: var(--bg-dark);
+}
+::-webkit-scrollbar-thumb {
+    background: #525252;
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #737373;
+}
+
+/* Spotlight and particle canvas styles */
+#spotlight {
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    background-image: radial-gradient(circle at var(--x, 50%) var(--y, 50%), rgba(45, 100, 245, 0.1), transparent 30%);
+    pointer-events: none;
+}
+#particle-canvas {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+}
