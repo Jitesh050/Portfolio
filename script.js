@@ -138,6 +138,43 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     revealElements.forEach(el => observer.observe(el));
+
+    // Staggered project reveal
+    const projectEls = document.querySelectorAll('.project');
+    projectEls.forEach((el, idx) => {
+        el.style.setProperty('--delay', `${idx * 120}ms`);
+    });
+
+    // Apply reveal to all cards automatically
+    document.querySelectorAll('.card').forEach(card => {
+        if (!card.classList.contains('reveal')) {
+            card.classList.add('reveal');
+            observer.observe(card);
+        }
+    });
+
+    // --- COLLAPSING HEADER + SHRINKING AVATAR ---
+    const header = document.getElementById('header');
+    const hero = document.getElementById('hero');
+    const profilePhoto = document.getElementById('profile-photo');
+    const heroTitle = document.querySelector('.hero-title');
+
+    const compactor = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            // When hero top scrolls past the header, compact
+            if (!entry.isIntersecting) {
+                header.classList.add('header-compact');
+                profilePhoto.classList.add('small');
+                heroTitle.classList.remove('spaced');
+            } else {
+                header.classList.remove('header-compact');
+                profilePhoto.classList.remove('small');
+                heroTitle.classList.add('spaced');
+            }
+        });
+    }, { rootMargin: '-64px 0px 0px 0px', threshold: 0 });
+
+    compactor.observe(hero);
     
     // --- RESUME FILTER ---
     const filterButtons = document.querySelectorAll('.filter-btn');
@@ -190,15 +227,17 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 300);
     };
 
-    hireMeBtn.addEventListener('click', openModal);
-    closeModalBtn.addEventListener('click', closeModal);
-    modal.addEventListener('click', (e) => {
-        if (e.target === modal) { // Close if clicking on the backdrop
-            closeModal();
-        }
-    });
+    if (hireMeBtn) hireMeBtn.addEventListener('click', openModal);
+    if (closeModalBtn) closeModalBtn.addEventListener('click', closeModal);
+    if (modal) {
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) { // Close if clicking on the backdrop
+                closeModal();
+            }
+        });
+    }
     document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+        if (e.key === 'Escape' && modal && !modal.classList.contains('hidden')) {
             closeModal();
         }
     });
@@ -213,4 +252,63 @@ document.addEventListener('DOMContentLoaded', () => {
             alert('This would open a modal with details on: "' + card.innerText + '"');
         });
     });
+
+    // --- FULLSCREEN VIDEO MODAL FOR LIVE DEMOS ---
+    const videoModal = document.getElementById('video-modal');
+    const videoEl = document.getElementById('demo-video');
+    const videoCloseBtn = document.getElementById('video-close');
+    const liveDemoButtons = document.querySelectorAll('.live-demo-btn');
+
+    const openVideo = (src) => {
+        if (!videoModal || !videoEl) return;
+        const safeSrc = encodeURI(src);
+        videoEl.src = safeSrc;
+        // Reload the video element to ensure the new source is picked up
+        try { videoEl.load(); } catch (_) {}
+        videoModal.classList.remove('hidden');
+        videoEl.play().catch(() => {
+            // If autoplay fails, user can press play; ensure controls visible
+            videoEl.setAttribute('controls', '');
+        });
+        document.body.style.overflow = 'hidden';
+    };
+
+    const closeVideo = () => {
+        if (!videoModal || !videoEl) return;
+        try { videoEl.pause(); } catch (_) {}
+        videoEl.currentTime = 0;
+        videoEl.removeAttribute('src');
+        try { videoEl.load(); } catch (_) {}
+        videoModal.classList.add('hidden');
+        document.body.style.overflow = '';
+    };
+
+    liveDemoButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const src = btn.getAttribute('data-video');
+            if (src) openVideo(src);
+        });
+    });
+
+    if (videoCloseBtn) videoCloseBtn.addEventListener('click', closeVideo);
+    if (videoModal) {
+        videoModal.addEventListener('click', (e) => {
+            if (e.target === videoModal) closeVideo();
+        });
+    }
+
+    // --- FOOTER CONTACT FORM: open email client with prefilled content ---
+    const footerForm = document.getElementById('footer-contact-form');
+    if (footerForm) {
+        footerForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = document.getElementById('footer-name')?.value || '';
+            const email = document.getElementById('footer-email')?.value || '';
+            const phone = document.getElementById('footer-phone')?.value || '';
+            const message = document.getElementById('footer-message')?.value || '';
+            const subject = encodeURIComponent(`Portfolio contact from ${name}`);
+            const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nPhone: ${phone}\n\nMessage:\n${message}`);
+            window.location.href = `mailto:jitesh0510@gmail.com?subject=${subject}&body=${body}`;
+        });
+    }
 });

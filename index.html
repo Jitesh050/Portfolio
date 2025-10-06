@@ -31,7 +31,9 @@
 
         <!-- Hero Section -->
         <section id="hero" class="text-center min-h-[60vh] flex flex-col justify-center items-center">
-            <h1 class="text-4xl md:text-6xl font-black tracking-tighter mb-4 reveal font-grotesk">I build digital products that users <span class="text-blue-500">actually love</span>.</h1>
+            <!-- Profile photo starts large, shrinks into header on scroll -->
+            <div id="profile-photo" class="profile-photo reveal" aria-hidden="false">JK</div>
+            <h1 class="text-4xl md:text-6xl font-black tracking-tighter mb-4 reveal font-grotesk hero-title">I build digital products that users <span class="text-blue-500">actually love</span>.</h1>
             <p class="max-w-3xl text-lg md:text-xl text-neutral-400 mb-8 reveal" style="transition-delay: 200ms;">
                 Full-stack developer specializing in creating intuitive, high-impact web applications from concept to deployment.
             </p>
@@ -54,7 +56,7 @@
                     </svg>
                 </a>
                  <!-- NEW: Resume Icon -->
-                 <a href="/img/Jitesh k.pdf" aria-label="Resume">
+                 <a href="/img/jitesh resume.pdf" aria-label="Resume">
                     <svg class="w-6 h-6 text-neutral-400 hover:text-white transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                          <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                     </svg>
@@ -67,9 +69,11 @@
             <h2 class="text-3xl font-bold tracking-tight text-center mb-12 reveal">My Projects</h2>
             <div class="space-y-24">
                 <!-- Project 1 -->
-                <div class="grid md:grid-cols-2 gap-12 items-center reveal">
+                <div class="grid md:grid-cols-2 gap-12 items-center reveal project">
                     <div class="card p-8 rounded-xl">
-                        <div class="aspect-video bg-neutral-800 rounded-lg flex items-center justify-center font-bold text-neutral-400"><img src="/img/TrackWise.png" alt=""></div>
+                        <div class="rounded-lg overflow-hidden">
+                            <img class="project-image" src="/img/TrackWise.png" alt="TrackWise screenshot">
+                        </div>
                     </div>
                     <div>
                         <h3 class="text-2xl font-bold mb-2">TrackWise</h3>
@@ -77,16 +81,19 @@
                         <p class="mb-4 text-neutral-300"><strong class="text-neutral-100">Problem:</strong>Managing train schedules, commuter traffic, and ticket bookings at busy railway stations is complex and often leads to delays, confusion, or miscommunication for passengers.</p>
                         <p class="mb-6 text-neutral-300"><strong class="text-neutral-100">Impact:</strong> Built a real-time railway dashboard that streamlines live train updates, ticket booking, and station management. Simplifies daily operations and enhances the commuter experience with better visibility and faster access to updates.</p>
                         <div class="flex space-x-4">
-                           <a href="demo.html" target="_blank" class="bg-blue-600 text-white px-5 py-2 rounded-lg font-semibold hover:bg-blue-700 transition-transform hover:scale-105">Demo</a>
+                           <!-- Set TrackWise demo video here -->
+                           <button type="button" class="live-demo-btn bg-blue-600 text-white px-5 py-2 rounded-lg font-semibold hover:bg-blue-700 transition-transform hover:scale-105" data-video="img/merged.mp4">Live Demo</button>
                             <a href="https://github.com/GarvLakhina/Smart-Rail.git" class="card px-5 py-2 rounded-lg font-semibold hover:bg-neutral-800 transition-colors">View Code</a>
                         </div>
                     </div>
                 </div>
                 <!-- Project 2 -->
-                <div class="grid md:grid-cols-2 gap-12 items-center reveal">
+                <div class="grid md:grid-cols-2 gap-12 items-center reveal project">
                     <div class="md:order-2">
                          <div class="card p-8 rounded-xl">
-                            <div class="aspect-video bg-neutral-800 rounded-lg flex items-center justify-center font-bold text-neutral-400"><img src="/img/ComplaintHub.png" alt=""></div>
+                            <div class="rounded-lg overflow-hidden">
+                                <img class="project-image" src="/img/ComplaintHub.png" alt="ComplaintHub screenshot">
+                            </div>
                         </div>
                     </div>
                     <div class="md:order-1">
@@ -95,15 +102,18 @@
                         <p class="mb-4 text-neutral-300"><strong class="text-neutral-100">Problem:</strong> Students concerns and issues are often gone un-resolved and they are never able to be solved</p>
                         <p class="mb-6 text-neutral-300"><strong class="text-neutral-100">Impact:</strong> Built a page which acts as a platform for students to raise their complaints and also for the teachers to view and manage them in one place </p>
                         <div class="flex space-x-4">
-                             <a href="demo.html" target="_blank" class="bg-blue-600 text-white px-5 py-2 rounded-lg font-semibold hover:bg-blue-700 transition-transform hover:scale-105">Demo</a>
+                             <!-- Set Complaint Hub demo video here -->
+                             <button type="button" class="live-demo-btn bg-blue-600 text-white px-5 py-2 rounded-lg font-semibold hover:bg-blue-700 transition-transform hover:scale-105" data-video="img/CompHub demo.mp4">Live Demo</button>
                             <a href="https://github.com/Jitesh050/Complaint-Hub-.git" class="card px-5 py-2 rounded-lg font-semibold hover:bg-neutral-800 transition-colors">View Code</a>
                         </div>
                     </div>
                 </div>  
                 <!-- Project 3 -->
-                <div class="grid md:grid-cols-2 gap-12 items-center reveal">
+                <div class="grid md:grid-cols-2 gap-12 items-center reveal project">
                     <div class="card p-8 rounded-xl">
-                        <div class="aspect-video bg-neutral-800 rounded-lg flex items-center justify-center font-bold text-neutral-400"><img src="/img/Sentinal AI.png" alt=""></div>
+                        <div class="rounded-lg overflow-hidden">
+                            <img class="project-image" src="/img/Sentinal AI.png" alt="Sentinal AI screenshot">
+                        </div>
                     </div>
                     <div>
                         <h3 class="text-2xl font-bold mb-2">Sentinal-AI</h3>
@@ -111,8 +121,9 @@
                         <p class="mb-4 text-neutral-300"><strong class="text-neutral-100">Problem:</strong>Managing train schedules, commuter traffic, and ticket bookings at busy railway stations is complex and often leads to delays, confusion, or miscommunication for passengers.</p>
                         <p class="mb-6 text-neutral-300"><strong class="text-neutral-100">Impact:</strong> Built a real-time railway dashboard that streamlines live train updates, ticket booking, and station management. Simplifies daily operations and enhances the commuter experience with better visibility and faster access to updates.</p>
                         <div class="flex space-x-4">
-                            <a href="#" class="bg-blue-600 text-white px-5 py-2 rounded-lg font-semibold hover:bg-blue-700 transition-transform hover:scale-105">Live Demo</a>
-                            <a href="https://github.com/Jitesh0510/Sentinal-AI.git" class="card px-5 py-2 rounded-lg font-semibold hover:bg-neutral-800 transition-colors">View Code</a>
+                            <!-- Set Sentinel AI demo video here -->
+                            <button type="button" class="live-demo-btn bg-blue-600 text-white px-5 py-2 rounded-lg font-semibold hover:bg-blue-700 transition-transform hover:scale-105" data-video="img/merged.mp4">Live Demo</button>
+                            <a href="https://github.com/Jitesh050/Sentinal-AI.git" class="card px-5 py-2 rounded-lg font-semibold hover:bg-neutral-800 transition-colors">View Code</a>
                         </div>
                     </div>
                     </div>  
@@ -205,31 +216,61 @@
 
         <!-- Skills Section -->
         <section id="skills" class="py-24">
-            <h2 class="text-3xl font-bold tracking-tight text-center mb-12 reveal">Skills in Context</h2>
+            <h2 class="text-3xl font-bold tracking-tight text-center mb-12 reveal">Skills</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Left: Technical Skills -->
+                <div class="card p-6 rounded-lg reveal">
+                    <h3 class="font-bold text-lg mb-4">Technical Skills</h3>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                        <div class="card p-3 rounded-md text-center text-sm">C++</div>
+                        <div class="card p-3 rounded-md text-center text-sm">Java</div>
+                        <div class="card p-3 rounded-md text-center text-sm">Web Development</div>
+                        <div class="card p-3 rounded-md text-center text-sm">OpenCV</div>
+                        <div class="card p-3 rounded-md text-center text-sm">TensorFlow</div>
+                    </div>
+                </div>
+                <!-- Right: Platform Skills -->
+                <div class="card p-6 rounded-lg reveal">
+                    <h3 class="font-bold text-lg mb-4">Platform Skills</h3>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                        <div class="card p-3 rounded-md text-center text-sm">Tableau</div>
+                        <div class="card p-3 rounded-md text-center text-sm">Power BI</div>
+                        <div class="card p-3 rounded-md text-center text-sm">MySQL</div>
+                        <div class="card p-3 rounded-md text-center text-sm">Git</div>
+                        <div class="card p-3 rounded-md text-center text-sm">GitHub</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certifications Section -->
+        <section id="certifications" class="py-24">
+            <h2 class="text-3xl font-bold tracking-tight text-center mb-12 reveal">Certifications</h2>
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="card p-6 rounded-lg reveal hover:scale-105 hover:rotate-[-2deg] transition-transform reveal">
-                    <h3 class="font-bold text-lg mb-2">React.js & Next.js</h3>
-                    <p class="text-sm text-neutral-300">Used React to build an internal tool for 100+ employees, increasing their operational efficiency by 25%.</p>
+                <div class="card p-6 rounded-lg reveal hover:scale-105 transition-transform">
+                    <h3 class="font-bold text-lg mb-1">Flutter Workshop</h3>
+                    <p class="text-neutral-300 text-sm mb-3">Issuer • Year</p>
+                    <a href="#" class="text-blue-400 text-sm">View certificate</a>
                 </div>
-                <div class="card p-6 rounded-lg reveal hover:scale-105 hover:rotate-[2deg] transition-transform reveal">
-                    <h3 class="font-bold text-lg mb-2">Node.js & Express</h3>
-                    <p class="text-sm text-neutral-300">Engineered a REST API for a mobile app with 10k+ users, ensuring 99.9% uptime and sub-200ms response times.</p>
+                <div class="card p-6 rounded-lg reveal hover:scale-105 transition-transform">
+                    <h3 class="font-bold text-lg mb-1">Ideathon</h3>
+                    <p class="text-neutral-300 text-sm mb-3">Issuer • Year</p>
+                    <a href="#" class="text-blue-400 text-sm">View certificate</a>
                 </div>
-                <div class="card p-6 rounded-lg reveal hover:scale-105 hover:rotate-[-2deg] transition-transform reveal">
-                    <h3 class="font-bold text-lg mb-2">PostgreSQL & Prisma</h3>
-                    <p class="text-sm text-neutral-300">Designed and managed a database schema for a multi-tenant SaaS application, handling complex data relationships.</p>
+                <div class="card p-6 rounded-lg reveal hover:scale-105 transition-transform">
+                    <h3 class="font-bold text-lg mb-1">NLP</h3>
+                    <p class="text-neutral-300 text-sm mb-3">Issuer • Year</p>
+                    <a href="#" class="text-blue-400 text-sm">View certificate</a>
                 </div>
-                <div class="card p-6 rounded-lg reveal hover:scale-105 hover:rotate-[2deg] transition-transform reveal">
-                    <h3 class="font-bold text-lg mb-2">AWS & Docker</h3>
-                    <p class="text-sm text-neutral-300">Containerized and deployed a full-stack application on AWS ECS, setting up a CI/CD pipeline with GitHub Actions.</p>
+                <div class="card p-6 rounded-lg reveal hover:scale-105 transition-transform">
+                    <h3 class="font-bold text-lg mb-1">Data Analytics Job Simulation</h3>
+                    <p class="text-neutral-300 text-sm mb-3">Issuer • Year</p>
+                    <a href="#" class="text-blue-400 text-sm">View certificate</a>
                 </div>
-                <div class="card p-6 rounded-lg reveal hover:scale-105 hover:rotate-[-2deg] transition-transform reveal">
-                    <h3 class="font-bold text-lg mb-2">WebSockets</h3>
-                    <p class="text-sm text-neutral-300">Implemented real-time features for a collaborative whiteboard, enabling seamless interaction for distributed teams.</p>
-                </div>
-                <div class="card p-6 rounded-lg reveal hover:scale-105 hover:rotate-[2deg] transition-transform reveal">
-                    <h3 class="font-bold text-lg mb-2">Accessibility (A11y)</h3>
-                    <p class="text-sm text-neutral-300">Conducted an accessibility audit and refactored a public-facing website to be WCAG 2.1 AA compliant.</p>
+                <div class="card p-6 rounded-lg reveal hover:scale-105 transition-transform">
+                    <h3 class="font-bold text-lg mb-1">Genrative AI</h3>
+                    <p class="text-neutral-300 text-sm mb-3">Issuer • Year</p>
+                    <a href="#" class="text-blue-400 text-sm">View certificate</a>
                 </div>
             </div>
         </section>
@@ -238,28 +279,28 @@
         <section id="problem-wall" class="py-24">
             <h2 class="text-3xl font-bold tracking-tight text-center mb-12 reveal">Problem Solved Wall</h2>
             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                <div class="problem-card card p-4 rounded-lg text-center cursor-pointer hover:scale-105 hover:rotate-[-2deg] transition-transform reveal">
+                <div class="problem-card card p-4 rounded-lg text-center cursor-pointer hover:scale-105 transition-transform reveal">
                     <h4 class="font-semibold text-sm">Fixed critical memory leak in Node.js server</h4>
                 </div>
-                <div class="problem-card card p-4 rounded-lg text-center cursor-pointer hover:scale-105 hover:rotate-[2deg] transition-transform reveal">
+                <div class="problem-card card p-4 rounded-lg text-center cursor-pointer hover:scale-105 transition-transform reveal">
                     <h4 class="font-semibold text-sm">Cut LCP by 50% with image optimization</h4>
                 </div>
-                <div class="problem-card card p-4 rounded-lg text-center cursor-pointer hover:scale-105 hover:rotate-[-1deg] transition-transform reveal">
+                <div class="problem-card card p-4 rounded-lg text-center cursor-pointer hover:scale-105 transition-transform reveal">
                     <h4 class="font-semibold text-sm">Implemented CI/CD pipeline, saving 8 dev hours/week</h4>
                 </div>
-                <div class="problem-card card p-4 rounded-lg text-center cursor-pointer hover:scale-105 hover:rotate-[3deg] transition-transform reveal">
+                <div class="problem-card card p-4 rounded-lg text-center cursor-pointer hover:scale-105 transition-transform reveal">
                     <h4 class="font-semibold text-sm">Refactored legacy CSS to Tailwind</h4>
                 </div>
-                <div class="problem-card card p-4 rounded-lg text-center cursor-pointer hover:scale-105 hover:rotate-[1deg] transition-transform reveal">
+                <div class="problem-card card p-4 rounded-lg text-center cursor-pointer hover:scale-105 transition-transform reveal">
                     <h4 class="font-semibold text-sm">Resolved database N+1 query issue</h4>
                 </div>
-                <div class="problem-card card p-4 rounded-lg text-center cursor-pointer hover:scale-105 hover:rotate-[-2deg] transition-transform reveal">
+                <div class="problem-card card p-4 rounded-lg text-center cursor-pointer hover:scale-105 transition-transform reveal">
                     <h4 class="font-semibold text-sm">Integrated Stripe for subscription payments</h4>
                 </div>
-                 <div class="problem-card card p-4 rounded-lg text-center cursor-pointer hover:scale-105 hover:rotate-[2deg] transition-transform reveal">
+                 <div class="problem-card card p-4 rounded-lg text-center cursor-pointer hover:scale-105 transition-transform reveal">
                     <h4 class="font-semibold text-sm">Built a custom hook for complex form state</h4>
                 </div>
-                 <div class="problem-card card p-4 rounded-lg text-center cursor-pointer hover:scale-105 hover:rotate-[-3deg] transition-transform reveal">
+                 <div class="problem-card card p-4 rounded-lg text-center cursor-pointer hover:scale-105 transition-transform reveal">
                     <h4 class="font-semibold text-sm">Made app fully keyboard-navigable</h4>
                 </div>
             </div>
@@ -268,11 +309,46 @@
     </main>
     
     <!-- Footer -->
-    <footer class="border-t border-neutral-800">
-        <div class="container mx-auto px-6 py-8 text-center text-neutral-400">
-            <p>&copy; 2026 Jitesh. Crafted with care and code.</p>
+    <footer class="border-t border-neutral-800 glass-surface">
+        <div class="container mx-auto px-6 py-12 grid md:grid-cols-2 gap-12">
+            <!-- Left: Address/Details -->
+            <div>
+                <p class="text-neutral-400 mb-2">Your Address Line 1</p>
+                <p class="text-neutral-400 mb-2">City, State, ZIP</p>
+                <p class="text-neutral-400 mb-2">India</p>
+                <p class="text-neutral-400">Email: <a href="mailto:jitesh0510@gmail.com" class="text-blue-400">jitesh0510@gmail.com</a></p>
+            </div>
+            <!-- Right: Contact form -->
+            <form id="footer-contact-form" class="space-y-3">
+                <h3 class="text-lg font-semibold mb-1">Get in touch</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                    <input id="footer-name" type="text" placeholder="Your name" class="footer-input rounded-lg px-3 py-2 text-sm" required>
+                    <input id="footer-phone" type="tel" placeholder="Phone number" class="footer-input rounded-lg px-3 py-2 text-sm">
+                </div>
+                <input id="footer-email" type="email" placeholder="Email address" class="footer-input rounded-lg px-3 py-2 w-full text-sm" required>
+                <textarea id="footer-message" placeholder="Your message" rows="4" class="footer-input rounded-lg px-3 py-2 w-full text-sm" required></textarea>
+                <button type="submit" class="bg-blue-600 text-white px-5 py-2 rounded-lg font-semibold hover:bg-blue-700 transition-colors">Send</button>
+            </form>
         </div>
+        <div class="container mx-auto px-6 py-6 text-center text-neutral-500 border-t border-neutral-800">&copy; 2026 Jitesh. Crafted with care and code.</div>
     </footer>
+
+    <!-- Fullscreen Video Modal -->
+    <div id="video-modal" class="fixed inset-0 z-50 hidden">
+        <!-- Backdrop -->
+        <div class="absolute inset-0 bg-black/70"></div>
+        <!-- Centered glass container -->
+        <div class="relative w-full h-full flex items-center justify-center p-4">
+            <div class="glass-surface rounded-xl w-full max-w-6xl p-3 shadow-2xl">
+                <div class="flex justify-end">
+                    <button id="video-close" class="p-2 rounded-full bg-neutral-800 text-neutral-200 hover:bg-neutral-700">✕</button>
+                </div>
+                <div class="aspect-video w-full overflow-hidden rounded-lg">
+                    <video id="demo-video" class="w-full h-full" controls playsinline></video>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Hire Me Modal -->
     <div id="hire-me-modal" class="fixed inset-0 bg-black bg-opacity-70 z-50 flex justify-center items-center p-4 hidden" role="dialog" aria-modal="true" aria-labelledby="hire-me-title">

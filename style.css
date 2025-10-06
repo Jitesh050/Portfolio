@@ -28,7 +28,7 @@ body {
 }
 
 .card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-5px) scale(1.02);
     box-shadow: 0 10px 20px rgba(0,0,0,0.2);
     border-color: var(--accent);
 }
@@ -38,6 +38,78 @@ body {
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--border-dark);
+}
+
+/* Frosted glass surface for sections like footer */
+.glass-surface {
+    background-color: rgba(10, 10, 10, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--border-dark);
+}
+
+/* Start with a bit of space below header so hero can show big photo */
+/* Remove header gap; use compact by default */
+.header-compact { transform: translateY(0); }
+
+/* Profile photo that shrinks into the header */
+.profile-photo {
+    width: 196px;
+    height: 196px;
+    border-radius: 9999px;
+    border: 2px solid var(--border-dark);
+    background: linear-gradient(145deg, #0f0f10, #161616);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 28px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+    transition: width .45s ease, height .45s ease, transform .45s ease, opacity .35s ease, box-shadow .35s ease;
+}
+
+/* Use user's photo for the avatar */
+#profile-photo {
+    background-image: url('img/Jitesh.png');
+    background-size: cover;
+    background-position: center;
+    color: transparent; /* hide initials when image is present */
+}
+
+/* Make container fit the image; keep images responsive */
+.project-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.profile-photo.small {
+    width: 44px;
+    height: 44px;
+    position: fixed;
+    top: 12px; /* aligns inside sticky header */
+    left: 112px; /* sits near the brand name */
+    z-index: 60;
+    margin-bottom: 0;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+    transform: none;
+}
+
+/* Footer form styles */
+.footer-input {
+    background-color: #171717;
+    border: 1px solid var(--border-dark);
+}
+.footer-input:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 2px rgba(59,130,246,.25);
+}
+
+/* When the big photo is present, push the title down slightly */
+.hero-title.spaced {
+    margin-top: 16px;
 }
 
 /* Scroll-triggered animation setup */
@@ -50,6 +122,11 @@ body {
 .reveal.visible {
     opacity: 1;
     transform: translateY(0);
+}
+
+/* Stagger helper for project items */
+.project.visible {
+    transition-delay: var(--delay, 0ms);
 }
 
 /* Custom focus styles for accessibility */
