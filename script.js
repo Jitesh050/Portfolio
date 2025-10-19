@@ -175,6 +175,27 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { rootMargin: '-64px 0px 0px 0px', threshold: 0 });
 
     compactor.observe(hero);
+
+    // --- SCROLLSPY NAV HIGHLIGHT ---
+    const sections = [
+        { id: 'projects', link: document.querySelector('a[href="#projects"]') },
+        { id: 'skills', link: document.querySelector('a[href="#skills"]') },
+        { id: 'problem-wall', link: document.querySelector('a[href="#problem-wall"]') },
+    ];
+    const sectionObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            const found = sections.find(s => s.id === entry.target.id);
+            if (!found || !found.link) return;
+            if (entry.isIntersecting) {
+                sections.forEach(s => s.link && s.link.classList.remove('text-blue-500'));
+                found.link.classList.add('text-blue-500');
+            }
+        });
+    }, { rootMargin: '-40% 0px -50% 0px', threshold: 0.01 });
+    sections.forEach(s => {
+        const el = document.getElementById(s.id);
+        if (el) sectionObserver.observe(el);
+    });
     
     // --- RESUME FILTER ---
     const filterButtons = document.querySelectorAll('.filter-btn');
@@ -299,6 +320,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- FOOTER CONTACT FORM: open email client with prefilled content ---
     const footerForm = document.getElementById('footer-contact-form');
+    const toastEl = document.getElementById('toast');
     if (footerForm) {
         footerForm.addEventListener('submit', (e) => {
             e.preventDefault();
@@ -309,6 +331,18 @@ document.addEventListener('DOMContentLoaded', () => {
             const subject = encodeURIComponent(`Portfolio contact from ${name}`);
             const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nPhone: ${phone}\n\nMessage:\n${message}`);
             window.location.href = `mailto:jitesh0510@gmail.com?subject=${subject}&body=${body}`;
+
+            // success toast
+            if (toastEl) {
+                toastEl.textContent = 'Thanks! Your email app should open now to send the message.';
+                toastEl.classList.remove('text-neutral-500');
+                toastEl.classList.add('text-blue-400');
+                setTimeout(() => {
+                    toastEl.textContent = '© 2026 Jitesh. Crafted with care and code.';
+                    toastEl.classList.add('text-neutral-500');
+                    toastEl.classList.remove('text-blue-400');
+                }, 4000);
+            }
         });
     }
 });

@@ -92,7 +92,7 @@ body {
     left: 112px; /* sits near the brand name */
     z-index: 60;
     margin-bottom: 0;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25), 0 0 0 2px rgba(59,130,246,0.4), 0 0 12px rgba(59,130,246,0.5);
     transform: none;
 }
 
